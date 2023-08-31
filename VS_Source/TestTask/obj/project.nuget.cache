@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7WncMboc7pHlWgqEFNFJy4jTZZj4y2sbyC5iCeLenuvPGO7bkutwJadNRskGI7mWYOyI6xNqCqaSd/4Y8DTKBA==",
+  "dgSpecHash": "bYGPQ32t3t7OSxoF3n3a9Zl99oATJUvApwkdwgScsc2OtfPoy7AAXH2INh9ThlmaNaC7vCksX9PRtFcMEVg3Yw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\alex2\\OneDrive\\Документы\\Work\\TestTask\\TestTask.csproj",
+  "projectFilePath": "C:\\Users\\alex2\\OneDrive\\Документы\\Work\\TestTask_DB\\VS_Source\\TestTask\\TestTask.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alex2\\.nuget\\packages\\google.protobuf\\3.21.9\\google.protobuf.3.21.9.nupkg.sha512",
     "C:\\Users\\alex2\\.nuget\\packages\\k4os.compression.lz4\\1.3.5\\k4os.compression.lz4.1.3.5.nupkg.sha512",

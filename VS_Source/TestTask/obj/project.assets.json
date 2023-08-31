@@ -1790,11 +1790,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alex2\\OneDrive\\Документы\\Work\\TestTask\\TestTask.csproj",
+      "projectUniqueName": "C:\\Users\\alex2\\OneDrive\\Документы\\Work\\TestTask_DB\\VS_Source\\TestTask\\TestTask.csproj",
       "projectName": "TestTask",
-      "projectPath": "C:\\Users\\alex2\\OneDrive\\Документы\\Work\\TestTask\\TestTask.csproj",
+      "projectPath": "C:\\Users\\alex2\\OneDrive\\Документы\\Work\\TestTask_DB\\VS_Source\\TestTask\\TestTask.csproj",
       "packagesPath": "C:\\Users\\alex2\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alex2\\OneDrive\\Документы\\Work\\TestTask\\obj\\",
+      "outputPath": "C:\\Users\\alex2\\OneDrive\\Документы\\Work\\TestTask_DB\\VS_Source\\TestTask\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\alex2\\AppData\\Roaming\\NuGet\\NuGet.Config",
