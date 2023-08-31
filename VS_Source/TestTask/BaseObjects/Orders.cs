@@ -3,7 +3,7 @@ using System.Text;
 
 namespace TestTask.BaseObjects
 {
-    public class Orders
+    public sealed class Orders
     {
         #region FieldsAndProperties
         public int Id { get => id; set => id = Math.Max(0, value); }

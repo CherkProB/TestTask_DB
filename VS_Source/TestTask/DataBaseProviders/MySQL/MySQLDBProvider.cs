@@ -3,13 +3,10 @@ using TestTask.DataBaseProviders.Base;
 
 namespace TestTask.DataBaseProviders.MySQL
 {
-    public class MySQLDBProvider : BaseDBProvider
+    public sealed class MySQLDBProvider : BaseDBProvider
     {
         #region Declaration
-        public override BaseTableProvider CustomerTableProvider { get => customersTableProvider; }
         private readonly MySQLCustomersTableProvider customersTableProvider;
-
-        public override BaseTableProvider OrderTableProvider { get => ordersTableProvider; }
         private readonly MySQLOrdersTableProvider ordersTableProvider;
         #endregion
 

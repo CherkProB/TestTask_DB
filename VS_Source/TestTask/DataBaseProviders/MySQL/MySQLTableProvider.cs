@@ -1,7 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using System.Data;
-using System.Text;
-using TestTask.BaseObjects;
 using TestTask.DataBaseProviders.Base;
 
 namespace TestTask.DataBaseProviders.MySQL
@@ -19,7 +17,7 @@ namespace TestTask.DataBaseProviders.MySQL
         #endregion
 
         #region Requests
-        public DataSet Select(string request) 
+        public DataSet Select(string request)
         {
             DataSet newDataSet = new DataSet();
             MySqlConnection connection = new MySqlConnection(connectionString);
@@ -50,11 +48,11 @@ namespace TestTask.DataBaseProviders.MySQL
 
         public DataSet SelectAll() => Select("SELECT * FROM " + tableName);
 
-        public void InsertQuery(string request) 
+        public void InsertQuery(string request)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
 
-            try 
+            try
             {
                 if (isDetailed) Console.WriteLine("Установка соединения с базой данных...");
 
@@ -69,7 +67,7 @@ namespace TestTask.DataBaseProviders.MySQL
                 if (isDetailed) Console.WriteLine("Запрос успешно выполнен.");
 
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 Console.WriteLine("При выполнить запрос произошла ошибка!\n" + ex.Message);
             }

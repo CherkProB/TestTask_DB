@@ -4,11 +4,6 @@ namespace TestTask.DataBaseProviders.Base
 {
     public abstract class BaseDBProvider
     {
-        #region Declaration
-        public abstract BaseTableProvider CustomerTableProvider { get; }
-        public abstract BaseTableProvider OrderTableProvider { get; }
-        #endregion
-
         #region SelectRequests
         public abstract Customers[] SelectAllCustomers();
         public abstract Orders[] SelectAllOrders();

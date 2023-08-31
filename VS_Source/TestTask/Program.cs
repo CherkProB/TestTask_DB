@@ -1,5 +1,7 @@
 ﻿using TestTask.DataBaseProviders.Base;
 using TestTask.DataBaseProviders.MySQL;
+using TestTask.Screens.Base;
+using TestTask.Screens.Start;
 
 namespace TestTask.Startup
 {
@@ -11,7 +13,7 @@ namespace TestTask.Startup
         private static void Main(string[] args)
         {
             BaseDBProvider baseDBProvider = new MySQLDBProvider(ConnectionString, IsDetailed);
-            
+            ScreenManager screenManager = new ScreenManager(baseDBProvider);
         }
     }
 }
