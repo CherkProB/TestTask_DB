@@ -1,7 +1,6 @@
 ﻿using TestTask.DataBaseProviders.Base;
 using TestTask.DataBaseProviders.MySQL;
 using TestTask.Screens.Base;
-using TestTask.Screens.Start;
 
 namespace TestTask.Startup
 {

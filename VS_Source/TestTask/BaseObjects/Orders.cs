@@ -31,7 +31,9 @@ namespace TestTask.BaseObjects
 
         public Orders(DataRow row)
         {
-            string[] cells = (string[])row.ItemArray;
+            //string[] cells = row.ItemArray.Cast<string>().ToArray(); ;
+
+            var cells = row.ItemArray;
 
             id = int.Parse(cells[0].ToString());
             title = cells[1].ToString();
@@ -50,11 +52,15 @@ namespace TestTask.BaseObjects
         {
             StringBuilder stringBuilder = new StringBuilder();
 
-            stringBuilder.Append(id + ": ");
-            stringBuilder.Append(title + ". ");
-            stringBuilder.Append(orderDate + ". ");
-            stringBuilder.Append(price + ". ");
-            stringBuilder.Append(customerId + ". ");
+            stringBuilder.Append(id);
+            stringBuilder.Append(": ");
+            stringBuilder.Append(title);
+            stringBuilder.Append(". ");
+            stringBuilder.Append(orderDate);
+            stringBuilder.Append(". ");
+            stringBuilder.Append(price);
+            stringBuilder.Append(". ");
+            stringBuilder.Append(customerId);
 
             return stringBuilder.ToString();
         }

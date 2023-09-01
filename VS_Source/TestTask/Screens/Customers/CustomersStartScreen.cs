@@ -1,5 +1,4 @@
 ﻿using TestTask.Screens.Base;
-using TestTask.Screens.Orders;
 using TestTask.Screens.Start;
 
 namespace TestTask.Screens.Customers
@@ -7,6 +6,7 @@ namespace TestTask.Screens.Customers
     public sealed class CustomersStartScreen : BaseScreen
     {
         public CustomersStartScreen(ScreenManager screenManager) : base(screenManager) { }
+        
         public override void Show()
         {
             string? userInput = string.Empty;
@@ -29,9 +29,9 @@ namespace TestTask.Screens.Customers
                 switch (userInput)
                 {
                     case "0": screenManager.SwitchScreen<StartScreen>(); return;
-                    case "1": ShowAllCustomers(); return;
-                    //case "2": screenManager.SwitchScreen<StartScreen>(); return;
-                    //case "3": screenManager.SwitchScreen<StartScreen>(); return;
+                    case "1": ShowAllCustomers(); break;
+                    case "2": screenManager.SwitchScreen<CustomersAddScreen>(); break;
+                    case "3": screenManager.SwitchScreen<CustomersDeleteScreen>(); break;
                     default: Console.WriteLine("Введен неверный номер!"); break;
                 }
             }
@@ -39,7 +39,10 @@ namespace TestTask.Screens.Customers
 
         private void ShowAllCustomers() 
         {
+            BaseObjects.Customers[] customers = screenManager.DBProvider.SelectAllCustomers();
 
+            foreach (BaseObjects.Customers customer in customers)
+                Console.WriteLine(customer.ToString());
         }
     }
 }

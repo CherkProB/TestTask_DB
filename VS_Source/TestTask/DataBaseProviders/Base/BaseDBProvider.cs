@@ -6,7 +6,9 @@ namespace TestTask.DataBaseProviders.Base
     {
         #region SelectRequests
         public abstract Customers[] SelectAllCustomers();
+        public abstract Customers? SelectCustomerById(int customerId);
         public abstract Orders[] SelectAllOrders();
+        public abstract Orders? SelectOrderById(int orderId);
         public abstract Orders[] SelectAllOrdersByCustomerId(int customerId);
         #endregion
 

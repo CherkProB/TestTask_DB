@@ -30,9 +30,12 @@ namespace TestTask.BaseObjects
             phoneNumber = 80000000000;
         }
 
+        //TODO:
         public Customers(DataRow row)
         {
-            string[] cells = (string[])row.ItemArray;
+            //string[] cells = row.ItemArray.Cast<string>().ToArray();
+
+            var cells = row.ItemArray;
 
             id = int.Parse(cells[0].ToString());
             surname = cells[1].ToString();
@@ -44,6 +47,26 @@ namespace TestTask.BaseObjects
 
         #region Method
         public string[] GetStringArray() => new string[] {id.ToString(), surname, name, email, phoneNumber.ToString()};
+
+        private static string GetNumberInFormat(double phoneNumber) 
+        {
+            string phoneNumberStr = phoneNumber.ToString();
+
+            StringBuilder stringBuilder = new StringBuilder();
+
+            stringBuilder.Append(phoneNumberStr.Substring(0, 1));
+            stringBuilder.Append(" (");
+            stringBuilder.Append(phoneNumberStr.Substring(1, 3));
+            stringBuilder.Append(") ");
+            stringBuilder.Append(phoneNumberStr.Substring(4, 3));
+            stringBuilder.Append("-");
+            stringBuilder.Append(phoneNumberStr.Substring(7, 2));
+            stringBuilder.Append("-");
+            stringBuilder.Append(phoneNumberStr.Substring(9, 2));
+
+            return stringBuilder.ToString();
+
+        }
         #endregion
 
         #region Override
@@ -51,11 +74,15 @@ namespace TestTask.BaseObjects
         {
             StringBuilder stringBuilder = new StringBuilder();
 
-            stringBuilder.Append(id + ": ");
-            stringBuilder.Append(name + " ");
-            stringBuilder.Append(surname + ". ");
-            stringBuilder.Append("Email: " + email + ". ");
-            stringBuilder.Append("Phone Number: " + phoneNumber + ".");
+            stringBuilder.Append(id);
+            stringBuilder.Append(": ");
+            stringBuilder.Append(name);
+            stringBuilder.Append(" ");
+            stringBuilder.Append(surname);
+            stringBuilder.Append(". Email: ");
+            stringBuilder.Append(email);
+            stringBuilder.Append(". Phone Number: ");
+            stringBuilder.Append(GetNumberInFormat(phoneNumber));
 
             return stringBuilder.ToString();
         }

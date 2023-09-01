@@ -1,5 +1,4 @@
 ﻿using TestTask.Screens.Base;
-using TestTask.Screens.Customers;
 using TestTask.Screens.Start;
 
 namespace TestTask.Screens.Orders

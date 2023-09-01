@@ -17,7 +17,7 @@ namespace TestTask.DataBaseProviders.MySQL
         #endregion
 
         #region Requests
-        public DataSet Select(string request)
+        public DataTable? Select(string request)
         {
             DataSet newDataSet = new DataSet();
             MySqlConnection connection = new MySqlConnection(connectionString);
@@ -43,10 +43,10 @@ namespace TestTask.DataBaseProviders.MySQL
 
             connection.Close();
 
-            return newDataSet;
+            return newDataSet.Tables.Count != 0? newDataSet.Tables[0] : null;
         }
 
-        public DataSet SelectAll() => Select("SELECT * FROM " + tableName);
+        public DataTable? SelectAll() => Select("SELECT * FROM " + tableName);
 
         public void InsertQuery(string request)
         {

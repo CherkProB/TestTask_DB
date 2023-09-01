@@ -23,7 +23,9 @@ namespace TestTask.DataBaseProviders.MySQL
 
         #region SelectRequests
         public override Customers[] SelectAllCustomers() => customersTableProvider.SelectAllCustomers();
+        public override Customers? SelectCustomerById(int customerId) => customersTableProvider.SelectCustomerById(customerId);
         public override Orders[] SelectAllOrders() => ordersTableProvider.SelectAllOrders();
+        public override Orders? SelectOrderById(int orderId) => ordersTableProvider.SelectOrderById(orderId);
         public override Orders[] SelectAllOrdersByCustomerId(int customerId) => ordersTableProvider.SelectAllOrdersByCustomerId(customerId);
         #endregion
 
@@ -35,6 +37,7 @@ namespace TestTask.DataBaseProviders.MySQL
         #region DeleteRequests
         public override void DeleteCustomersById(int customerId) => customersTableProvider.DeleteCustomersById(customerId);
         public override void DeleteOrdersById(int orderId) => ordersTableProvider.DeleteOrdersById(orderId);
+
         #endregion
     }
 }
