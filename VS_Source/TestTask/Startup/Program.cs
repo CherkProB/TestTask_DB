@@ -14,6 +14,10 @@ namespace TestTask.Startup
 
         private static void Main(string[] args)
         {
+            BaseDBProvider baseDBProvider = new MySQLDBProvider(ConnectionString, IsDetailed);
+
+            if (!baseDBProvider.CheckConnection()) return;
+
             List<BaseScreen> screens = new List<BaseScreen>();
 
             screens.Add(new StartScreen());
@@ -24,7 +28,6 @@ namespace TestTask.Startup
             screens.Add(new OrderAddScreen());
             screens.Add(new OrderDeleteScreen());
 
-            BaseDBProvider baseDBProvider = new MySQLDBProvider(ConnectionString, IsDetailed);
             ScreenManager screenManager = new ScreenManager(baseDBProvider, screens.ToArray());
         }
     }

@@ -21,6 +21,10 @@ namespace TestTask.DataBaseProviders.MySQL
         }
         #endregion
 
+        #region CheckConnection
+        public override bool CheckConnection() => customersTableProvider.CheckConnection();
+        #endregion
+
         #region SelectRequests
         public override Customers[] SelectAllCustomers() => customersTableProvider.SelectAllCustomers();
         public override Customers? SelectCustomerById(int customerId) => customersTableProvider.SelectCustomerById(customerId);

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "bYGPQ32t3t7OSxoF3n3a9Zl99oATJUvApwkdwgScsc2OtfPoy7AAXH2INh9ThlmaNaC7vCksX9PRtFcMEVg3Yw==",
+  "dgSpecHash": "OsiRdHb4bUVlKI0ve+UsmG0acLEjRxRzBhCxulw/ygkvtcdgTMRtkb5rAqWPfDEJuetVPfapJcbRa+849yk02Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\alex2\\OneDrive\\Документы\\Work\\TestTask_DB\\VS_Source\\TestTask\\TestTask.csproj",
   "expectedPackageFiles": [
@@ -12,6 +12,7 @@
     "C:\\Users\\alex2\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\alex2\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\alex2\\.nuget\\packages\\mysql.data\\8.1.0\\mysql.data.8.1.0.nupkg.sha512",
+    "C:\\Users\\alex2\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\alex2\\.nuget\\packages\\portable.bouncycastle\\1.9.0\\portable.bouncycastle.1.9.0.nupkg.sha512",
     "C:\\Users\\alex2\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\alex2\\.nuget\\packages\\system.configuration.configurationmanager\\4.4.1\\system.configuration.configurationmanager.4.4.1.nupkg.sha512",

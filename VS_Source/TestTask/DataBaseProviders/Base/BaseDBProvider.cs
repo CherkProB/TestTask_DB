@@ -4,6 +4,10 @@ namespace TestTask.DataBaseProviders.Base
 {
     public abstract class BaseDBProvider
     {
+        #region CheckConnection
+        public abstract bool CheckConnection();
+        #endregion
+
         #region SelectRequests
         public abstract Customers[] SelectAllCustomers();
         public abstract Customers? SelectCustomerById(int customerId);

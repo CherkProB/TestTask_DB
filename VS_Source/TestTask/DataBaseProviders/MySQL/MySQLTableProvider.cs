@@ -16,6 +16,32 @@ namespace TestTask.DataBaseProviders.MySQL
         }
         #endregion
 
+        #region CheckConnection
+        public bool CheckConnection() 
+        {
+            MySqlConnection connection = new MySqlConnection(connectionString);
+
+            try 
+            {
+                if (isDetailed) Console.WriteLine("Установка соединения с базой данных...");
+
+                connection.Open();
+
+                if (isDetailed) Console.WriteLine("Соединение с базой данных установлено.");
+
+                connection.Close();
+
+                return true;
+            }
+            catch (Exception ex) 
+            {
+                Console.WriteLine("При попытки установить соединение с базой данных произошла ошибка.\n" + ex.Message);
+
+                return false;
+            }
+        }
+        #endregion
+
         #region Requests
         public DataTable? Select(string request)
         {

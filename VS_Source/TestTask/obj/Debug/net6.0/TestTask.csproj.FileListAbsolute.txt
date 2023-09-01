@@ -86,3 +86,4 @@ C:\Users\alex2\OneDrive\Документы\Work\TestTask_DB\VS_Source\TestTask\o
 C:\Users\alex2\OneDrive\Документы\Work\TestTask_DB\VS_Source\TestTask\obj\Debug\net6.0\TestTask.pdb
 C:\Users\alex2\OneDrive\Документы\Work\TestTask_DB\VS_Source\TestTask\obj\Debug\net6.0\TestTask.genruntimeconfig.cache
 C:\Users\alex2\OneDrive\Документы\Work\TestTask_DB\VS_Source\TestTask\obj\Debug\net6.0\ref\TestTask.dll
+C:\Users\alex2\OneDrive\Документы\Work\TestTask_DB\VS_Source\TestTask\bin\Debug\net6.0\Newtonsoft.Json.dll
