@@ -6,7 +6,7 @@ namespace TestTask.Screens.Start
 {
     public sealed class StartScreen : BaseScreen
     {
-        public StartScreen(ScreenManager screenManager) : base(screenManager) { }
+        public StartScreen() { }
 
         public override void Show()
         {
@@ -34,8 +34,6 @@ namespace TestTask.Screens.Start
                     default: Console.WriteLine("Введен неверный номер!"); break;
                 }
             }
-
-            
         }
     }
 }

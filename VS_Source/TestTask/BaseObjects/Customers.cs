@@ -46,8 +46,6 @@ namespace TestTask.BaseObjects
         #endregion
 
         #region Method
-        public string[] GetStringArray() => new string[] {id.ToString(), surname, name, email, phoneNumber.ToString()};
-
         private static string GetNumberInFormat(double phoneNumber) 
         {
             string phoneNumberStr = phoneNumber.ToString();
@@ -74,8 +72,9 @@ namespace TestTask.BaseObjects
         {
             StringBuilder stringBuilder = new StringBuilder();
 
+            stringBuilder.Append("ID: ");
             stringBuilder.Append(id);
-            stringBuilder.Append(": ");
+            stringBuilder.Append(". Full Name: ");
             stringBuilder.Append(name);
             stringBuilder.Append(" ");
             stringBuilder.Append(surname);

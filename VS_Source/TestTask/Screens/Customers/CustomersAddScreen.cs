@@ -2,10 +2,9 @@
 
 namespace TestTask.Screens.Customers
 {
-    public sealed class CustomersAddScreen : BaseScreen
+    public sealed class CustomersAddScreen : BaseAddDeleteScreen
     {
-        public CustomersAddScreen(ScreenManager screenManager) : base(screenManager) { }
-
+        #region Method
         public override void Show()
         {
             BaseObjects.Customers newCustomer = new BaseObjects.Customers();
@@ -36,70 +35,6 @@ namespace TestTask.Screens.Customers
 
             if (userInput == "1") screenManager.DBProvider.AddNewCustomer(newCustomer);
         }
-
-        private string GetSimpleText(string outputText)
-        {
-            string? userInput = string.Empty;
-
-            while (true)
-            {
-                Console.Write(outputText);
-                userInput = Console.ReadLine();
-
-                if (userInput == null)
-                    continue;
-                else
-                    return userInput;
-            }
-        }
-
-        private string GetEmailText(string outputText)
-        {
-            string? userInput = string.Empty;
-
-            while (true)
-            {
-                Console.Write(outputText);
-                userInput = Console.ReadLine();
-
-                if (userInput == null) continue;
-
-                int aSymbol = userInput.LastIndexOf('@');
-                int dotSymbol = userInput.LastIndexOf('.');
-
-                if (dotSymbol > aSymbol && dotSymbol != -1 && aSymbol != -1)
-                    return userInput;
-                else
-                    Console.WriteLine(@"Формат email: '[Любой набор символов]@[Любой набор символов].[Любой набор символов]'");
-            }
-        }
-
-        private double GetPhoneNumberText(string outputText) 
-        {
-            string? userInput = string.Empty;
-
-            while (true)
-            {
-                Console.Write(outputText);
-                userInput = Console.ReadLine();
-
-                if (userInput == null) continue;
-
-                double phoneNumber;
-                if (!double.TryParse(userInput, out phoneNumber))
-                {
-                    Console.WriteLine("Номер является набором цифр, который начинается с 8 и имеет длину 11");
-                    continue;
-                }
-
-                if (phoneNumber < 80000000000 || phoneNumber >= 90000000000)
-                {
-                    Console.WriteLine("Номер является набором цифр, который начинается с 8 и имеет длину 11");
-                    continue;
-                }
-
-                return phoneNumber;
-            }
-        }
+        #endregion
     }
 }

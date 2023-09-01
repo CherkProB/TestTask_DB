@@ -5,8 +5,7 @@ namespace TestTask.Screens.Customers
 {
     public sealed class CustomersStartScreen : BaseScreen
     {
-        public CustomersStartScreen(ScreenManager screenManager) : base(screenManager) { }
-        
+        #region Methods
         public override void Show()
         {
             string? userInput = string.Empty;
@@ -16,9 +15,9 @@ namespace TestTask.Screens.Customers
                 Console.WriteLine("---------------");
                 Console.WriteLine("Клиенты");
                 Console.WriteLine("---------------");
-                Console.WriteLine("1 - Просмотреть");
-                Console.WriteLine("2 - Добавить");
-                Console.WriteLine("3 - Удалить");
+                Console.WriteLine("1 - Просмотреть все");
+                Console.WriteLine("2 - Добавить нового клиента");
+                Console.WriteLine("3 - Удалить клиента");
                 Console.WriteLine("0 - Назад");
                 Console.Write("Ваш выбор - ");
 
@@ -37,12 +36,13 @@ namespace TestTask.Screens.Customers
             }
         }
 
-        private void ShowAllCustomers() 
+        private void ShowAllCustomers()
         {
             BaseObjects.Customers[] customers = screenManager.DBProvider.SelectAllCustomers();
 
             foreach (BaseObjects.Customers customer in customers)
                 Console.WriteLine(customer.ToString());
         }
+        #endregion
     }
 }

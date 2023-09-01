@@ -5,8 +5,7 @@ namespace TestTask.Screens.Orders
 {
     public sealed class OrderStartScreen : BaseScreen
     {
-        public OrderStartScreen(ScreenManager screenManager) : base(screenManager) { }
-
+        #region Methods
         public override void Show()
         {
             string? userInput = string.Empty;
@@ -16,9 +15,10 @@ namespace TestTask.Screens.Orders
                 Console.WriteLine("---------------");
                 Console.WriteLine("Заказы");
                 Console.WriteLine("---------------");
-                Console.WriteLine("1 - Просмотреть");
-                Console.WriteLine("2 - Добавить");
-                Console.WriteLine("3 - Удалить");
+                Console.WriteLine("1 - Просмотреть все");
+                Console.WriteLine("2 - Просмотреть заказы определенного клиента");
+                Console.WriteLine("3 - Добавить новый заказ");
+                Console.WriteLine("4 - Удалить заказ");
                 Console.WriteLine("0 - Назад");
                 Console.Write("Ваш выбор - ");
 
@@ -29,12 +29,36 @@ namespace TestTask.Screens.Orders
                 switch (userInput)
                 {
                     case "0": screenManager.SwitchScreen<StartScreen>(); return;
-                    //case "1": screenManager.SwitchScreen<StartScreen>(); return;
-                    //case "2": screenManager.SwitchScreen<StartScreen>(); return;
-                    //case "3": screenManager.SwitchScreen<StartScreen>(); return;
+                    case "1": ShowAllOrders(); break;
+                    case "2": ShowCustomerOrders(); break;
+                    case "3": screenManager.SwitchScreen<OrderAddScreen>(); break;
+                    case "4": screenManager.SwitchScreen<OrderDeleteScreen>(); break;
                     default: Console.WriteLine("Введен неверный номер!"); break;
                 }
             }
         }
+
+        private void ShowAllOrders()
+        {
+            BaseObjects.Orders[] orders = screenManager.DBProvider.SelectAllOrders();
+
+            foreach (BaseObjects.Orders order in orders)
+                Console.WriteLine(order.ToString());
+        }
+
+        private void ShowCustomerOrders()
+        {
+            Console.WriteLine("---------------");
+            Console.WriteLine("Список клиентов");
+            Console.WriteLine("---------------");
+
+            int customerId = BaseAddDeleteScreen.GetExistCustomerId("Введите ID клиента - ", screenManager.DBProvider);
+
+            BaseObjects.Orders[] orders = screenManager.DBProvider.SelectAllOrdersByCustomerId(customerId);
+
+            foreach (BaseObjects.Orders order in orders)
+                Console.WriteLine(order.ToString());
+        }
+        #endregion
     }
 }

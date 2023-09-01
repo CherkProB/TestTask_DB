@@ -5,7 +5,7 @@ namespace TestTask.DataBaseProviders.MySQL
 {
     public sealed class MySQLDBProvider : BaseDBProvider
     {
-        #region Declaration
+        #region Fields
         private readonly MySQLCustomersTableProvider customersTableProvider;
         private readonly MySQLOrdersTableProvider ordersTableProvider;
         #endregion
@@ -35,8 +35,8 @@ namespace TestTask.DataBaseProviders.MySQL
         #endregion
 
         #region DeleteRequests
-        public override void DeleteCustomersById(int customerId) => customersTableProvider.DeleteCustomersById(customerId);
-        public override void DeleteOrdersById(int orderId) => ordersTableProvider.DeleteOrdersById(orderId);
+        public override void DeleteCustomerById(int customerId) => customersTableProvider.DeleteCustomersById(customerId);
+        public override void DeleteOrderById(int orderId) => ordersTableProvider.DeleteOrdersById(orderId);
 
         #endregion
     }

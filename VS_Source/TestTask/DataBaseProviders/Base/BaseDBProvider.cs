@@ -18,8 +18,8 @@ namespace TestTask.DataBaseProviders.Base
         #endregion
 
         #region DeleteRequests
-        public abstract void DeleteCustomersById(int customerId);
-        public abstract void DeleteOrdersById(int orderId);
+        public abstract void DeleteCustomerById(int customerId);
+        public abstract void DeleteOrderById(int orderId);
         #endregion
     }
 }

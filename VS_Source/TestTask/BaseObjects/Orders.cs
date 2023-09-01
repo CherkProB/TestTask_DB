@@ -43,23 +43,20 @@ namespace TestTask.BaseObjects
         }
         #endregion
 
-        #region Method
-        public string[] GetStringArray() => new string[] { id.ToString(), title, orderDate, price.ToString(), customerId.ToString() };
-        #endregion
-
         #region Override
         public override string ToString()
         {
             StringBuilder stringBuilder = new StringBuilder();
 
+            stringBuilder.Append("ID: ");
             stringBuilder.Append(id);
-            stringBuilder.Append(": ");
+            stringBuilder.Append(". Title: ");
             stringBuilder.Append(title);
-            stringBuilder.Append(". ");
+            stringBuilder.Append(". Order Date: ");
             stringBuilder.Append(orderDate);
-            stringBuilder.Append(". ");
+            stringBuilder.Append(". Price: ");
             stringBuilder.Append(price);
-            stringBuilder.Append(". ");
+            stringBuilder.Append(". Customer ID: ");
             stringBuilder.Append(customerId);
 
             return stringBuilder.ToString();

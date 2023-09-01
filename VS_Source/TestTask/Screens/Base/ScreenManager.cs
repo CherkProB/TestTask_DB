@@ -1,37 +1,37 @@
 ﻿using TestTask.DataBaseProviders.Base;
-using TestTask.Screens.Customers;
-using TestTask.Screens.Orders;
 using TestTask.Screens.Start;
 
 namespace TestTask.Screens.Base
 {
-    public class ScreenManager
+    public sealed class ScreenManager
     {
+        #region FieldsAndProperties
         public BaseDBProvider DBProvider { get => dbProvider; }
         private readonly BaseDBProvider dbProvider;
 
         private Dictionary<Type, BaseScreen> screens;
         private BaseScreen currentScreen;
-        
-        public ScreenManager(BaseDBProvider dbProvider) 
+        #endregion
+
+        #region Constructor
+        public ScreenManager(BaseDBProvider dbProvider, BaseScreen[] screens)
         {
             this.dbProvider = dbProvider;
 
-            screens = new Dictionary<Type, BaseScreen>();
-
-            screens.Add(typeof(StartScreen), new StartScreen(this));
-
-            screens.Add(typeof(CustomersStartScreen), new CustomersStartScreen(this));
-            screens.Add(typeof(CustomersAddScreen), new CustomersAddScreen(this));
-            screens.Add(typeof(CustomersDeleteScreen), new CustomersDeleteScreen(this));
-            
-            screens.Add(typeof(OrderStartScreen), new OrderStartScreen(this));
+            this.screens = new Dictionary<Type, BaseScreen>();
+            foreach (BaseScreen screen in screens)
+            {
+                this.screens.Add(screen.GetType(), screen);
+                screen.ScreenManager = this;
+            }
 
             SwitchScreen<StartScreen>();
-            currentScreen = new StartScreen(this);
+            currentScreen = screens[0];
         }
+        #endregion
 
-        public void SwitchScreen<TScreen>() where TScreen : BaseScreen 
+        #region Methods
+        public void SwitchScreen<TScreen>() where TScreen : BaseScreen
         {
             BaseScreen newScreen = GetScreenByType<TScreen>();
 
@@ -40,5 +40,6 @@ namespace TestTask.Screens.Base
         }
 
         private BaseScreen GetScreenByType<TScreen>() where TScreen : BaseScreen => (TScreen)screens[typeof(TScreen)];
+        #endregion
     }
 }

@@ -1,6 +1,9 @@
 ﻿using TestTask.DataBaseProviders.Base;
 using TestTask.DataBaseProviders.MySQL;
 using TestTask.Screens.Base;
+using TestTask.Screens.Customers;
+using TestTask.Screens.Orders;
+using TestTask.Screens.Start;
 
 namespace TestTask.Startup
 {
@@ -11,8 +14,18 @@ namespace TestTask.Startup
 
         private static void Main(string[] args)
         {
+            List<BaseScreen> screens = new List<BaseScreen>();
+
+            screens.Add(new StartScreen());
+            screens.Add(new CustomersStartScreen());
+            screens.Add(new CustomersAddScreen());
+            screens.Add(new CustomersDeleteScreen());
+            screens.Add(new OrderStartScreen());
+            screens.Add(new OrderAddScreen());
+            screens.Add(new OrderDeleteScreen());
+
             BaseDBProvider baseDBProvider = new MySQLDBProvider(ConnectionString, IsDetailed);
-            ScreenManager screenManager = new ScreenManager(baseDBProvider);
+            ScreenManager screenManager = new ScreenManager(baseDBProvider, screens.ToArray());
         }
     }
 }
