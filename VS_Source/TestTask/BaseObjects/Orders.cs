@@ -30,28 +30,17 @@ namespace TestTask.BaseObjects
         }
         public Orders(DataRow row)
         {
-            var cells = row.ItemArray;
+            object?[] rowItems = row.ItemArray;
 
-            id = int.Parse(cells[0].ToString());
-            title = cells[1].ToString();
-            orderDate = cells[2].ToString();
-            price = int.Parse(cells[3].ToString());
-            customerId = int.Parse(cells[4].ToString());
-        }
-        /*
-        */
-        /*
-        public Orders(DataRow row)
-        {
-            string[] cells = row.ItemArray.Cast<string>().ToArray();
+            int[] intArray = rowItems.OfType<int>().ToArray();
+            string[] strArray = rowItems.OfType<string>().ToArray();
 
-            id = int.Parse(cells[0].ToString());
-            title = cells[1].ToString();
-            orderDate = cells[2].ToString();
-            price = int.Parse(cells[3].ToString());
-            customerId = int.Parse(cells[4].ToString());
+            id = 0 < intArray.Length ? intArray[0] : 0;
+            title = 0 < strArray.Length ? strArray[0] : string.Empty;
+            orderDate = 1 < strArray.Length ? strArray[1] : string.Empty;
+            price = 1 < intArray.Length ? intArray[1] : 0;
+            customerId = 2 < intArray.Length ? intArray[2] : 0;
         }
-        */
         #endregion
 
         #region Override

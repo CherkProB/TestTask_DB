@@ -30,18 +30,19 @@ namespace TestTask.BaseObjects
             phoneNumber = 80000000000;
         }
 
-        //TODO:
-        public Customers(DataRow row)
+        public Customers(DataRow row) 
         {
-            //string[] cells = row.ItemArray.Cast<string>().ToArray();
+            object?[] rowItems = row.ItemArray;
 
-            var cells = row.ItemArray;
+            int[] intArray = rowItems.OfType<int>().ToArray();
+            string[] strArray = rowItems.OfType<string>().ToArray();
+            double[] doubleArray = rowItems.OfType<double>().ToArray();
 
-            id = int.Parse(cells[0].ToString());
-            surname = cells[1].ToString();
-            name = cells[2].ToString();
-            email = cells[3].ToString();
-            phoneNumber = double.Parse(cells[4].ToString());
+            id = 0 < intArray.Length ? intArray[0] : 0;
+            surname = 0 < strArray.Length ? strArray[0] : string.Empty;
+            name = 1 < strArray.Length ? strArray[1] : string.Empty;
+            email = 2 < strArray.Length ? strArray[2] : string.Empty;
+            phoneNumber = 0 < doubleArray.Length ? doubleArray[0] : 0;
         }
         #endregion
 
