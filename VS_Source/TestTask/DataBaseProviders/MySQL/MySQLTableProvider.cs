@@ -6,13 +6,16 @@ namespace TestTask.DataBaseProviders.MySQL
 {
     public abstract class MySQLTableProvider : BaseTableProvider
     {
+        #region Fields
+        protected string connectionString;
+        #endregion
+
         #region Constructor
-        public MySQLTableProvider(string connectionString, string tableName)
+        public MySQLTableProvider(string connectionString, string tableName) : base(tableName)
         {
             isDetailed = true;
 
             this.connectionString = connectionString;
-            this.tableName = tableName;
         }
         #endregion
 

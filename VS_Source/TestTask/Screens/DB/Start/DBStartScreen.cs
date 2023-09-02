@@ -1,13 +1,12 @@
-﻿using TestTask.Screens.Base;
-using TestTask.Screens.Customers;
-using TestTask.Screens.Orders;
+﻿using TestTask.Screens.DB.Base;
+using TestTask.Screens.DB.Customers;
+using TestTask.Screens.DB.Orders;
 
-namespace TestTask.Screens.Start
+namespace TestTask.Screens.DB.Start
 {
-    public sealed class StartScreen : BaseScreen
+    public sealed class DBStartScreen : DBBaseScreen
     {
-        public StartScreen() { }
-
+        #region Method
         public override void Show()
         {
             string? userInput = string.Empty;
@@ -29,11 +28,12 @@ namespace TestTask.Screens.Start
                 switch (userInput)
                 {
                     case "0": Console.WriteLine("До Свидания!"); Environment.Exit(0); return;
-                    case "1": screenManager.SwitchScreen<CustomersStartScreen>(); return;
-                    case "2": screenManager.SwitchScreen<OrderStartScreen>(); return;
+                    case "1": baseScreenManager.SwitchScreen<DBCustomersStartScreen>(); return;
+                    case "2": baseScreenManager.SwitchScreen<DBOrderStartScreen>(); return;
                     default: Console.WriteLine("Введен неверный номер!"); break;
                 }
             }
         }
+        #endregion
     }
 }

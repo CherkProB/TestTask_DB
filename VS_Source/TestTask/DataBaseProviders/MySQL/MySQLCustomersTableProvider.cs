@@ -14,8 +14,7 @@ namespace TestTask.DataBaseProviders.MySQL
 
         #region Constructor
         public MySQLCustomersTableProvider(string connectionString, string tableName) :
-            base(connectionString, tableName)
-        { }
+            base(connectionString, tableName) { }
         #endregion
 
         #region Requests

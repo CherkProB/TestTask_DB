@@ -1,14 +1,13 @@
 ﻿using TestTask.Screens.Base;
+using TestTask.Screens.DB.Base;
 
-namespace TestTask.Screens.Customers
+namespace TestTask.Screens.DB.Customers
 {
-    public sealed class CustomersDeleteScreen : BaseAddDeleteScreen
+    public sealed class DBCustomersDeleteScreen : DBBaseScreen
     {
         #region Methods
         public override void Show()
         {
-            string? userInput = string.Empty;
-
             BaseObjects.Customers? customer = GetCustomerById();
 
             if (customer == null) return;
@@ -21,13 +20,10 @@ namespace TestTask.Screens.Customers
             Console.WriteLine("Вы действительно хотите удалить данного пользователя?");
             Console.WriteLine("1 - Да");
             Console.WriteLine("Любая кнопка - Нет");
-            Console.Write("Ваш выбор - ");
 
-            userInput = Console.ReadLine();
+            string userInput = BaseInputs.GetSimpleText("Ваш выбор - ");
 
-            if (userInput == null) return;
-
-            if (userInput == "1") screenManager.DBProvider.DeleteCustomerById(customer.Id);
+            if (userInput == "1") dbScreenManager.DBProvider.DeleteCustomerById(customer.Id);
         }
 
         private BaseObjects.Customers? GetCustomerById()
@@ -36,9 +32,9 @@ namespace TestTask.Screens.Customers
             Console.WriteLine("Список клиентов");
             Console.WriteLine("---------------");
 
-            int customerId = GetExistCustomerId("Введите ID клиента - ", screenManager.DBProvider);
+            int customerId = DBInputs.GetExistCustomerId("Введите ID клиента - ", dbScreenManager.DBProvider);
 
-            BaseObjects.Customers? customers = screenManager.DBProvider.SelectCustomerById(customerId);
+            BaseObjects.Customers? customers = dbScreenManager.DBProvider.SelectCustomerById(customerId);
 
             return customers;
         }

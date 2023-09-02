@@ -2,12 +2,18 @@
 {
     public abstract class BaseTableProvider
     {
-        #region Declaration
+        #region FieldsAndProperties
         public bool IsDetailed { get => isDetailed; set => isDetailed = value; }
         protected bool isDetailed;
 
-        protected string? connectionString;
-        protected string? tableName;
+        protected string tableName;
+        #endregion Region
+
+        #region Constructor
+        public BaseTableProvider(string tableName)
+        {
+            this.tableName = tableName;
+        }
         #endregion Region
     }
 }

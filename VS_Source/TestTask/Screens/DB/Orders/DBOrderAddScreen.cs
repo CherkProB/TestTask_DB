@@ -1,21 +1,21 @@
 ﻿using TestTask.Screens.Base;
+using TestTask.Screens.DB.Base;
 
-namespace TestTask.Screens.Orders
+namespace TestTask.Screens.DB.Orders
 {
-    public sealed class OrderAddScreen : BaseAddDeleteScreen
+    public sealed class DBOrderAddScreen : DBBaseScreen
     {
         #region Methods
         public override void Show()
         {
             BaseObjects.Orders newOrder = new BaseObjects.Orders();
-            string? userInput = string.Empty;
 
             Console.WriteLine("---------------");
             Console.WriteLine("Добавление заказа");
             Console.WriteLine("---------------");
 
-            newOrder.Title = GetSimpleText("Введите название нового товара - ");
-            newOrder.Price = GetNumberText("Введите стоимость нового товара - ");
+            newOrder.Title = BaseInputs.GetSimpleText("Введите название нового товара - ");
+            newOrder.Price = BaseInputs.GetNumberText("Введите стоимость нового товара - ");
             newOrder.OrderDate = "Now";
 
             Console.WriteLine("---------------");
@@ -32,16 +32,13 @@ namespace TestTask.Screens.Orders
             Console.WriteLine("Вы действительно хотите добавить данный товар?");
             Console.WriteLine("1 - Да");
             Console.WriteLine("Любая кнопка - Нет");
-            Console.Write("Ваш выбор - ");
 
-            userInput = Console.ReadLine();
+            string userInput = BaseInputs.GetSimpleText("Ваш выбор - ");
 
-            if (userInput == null) return;
-
-            if (userInput == "1") screenManager.DBProvider.AddNewOrder(newOrder);
+            if (userInput == "1") dbScreenManager.DBProvider.AddNewOrder(newOrder);
         }
 
-        private int GetExistCustomerId(string outputText) => GetExistCustomerId(outputText, screenManager.DBProvider);
+        private int GetExistCustomerId(string outputText) => DBInputs.GetExistCustomerId(outputText, dbScreenManager.DBProvider);
         #endregion
     }
 }

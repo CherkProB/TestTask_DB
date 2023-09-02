@@ -1,47 +1,11 @@
-﻿namespace TestTask.Screens.Base
+﻿using TestTask.Screens.Base;
+
+namespace TestTask.Screens.DB.Base
 {
-    public abstract class BaseAddDeleteScreen : BaseScreen
+    public static class DBInputs
     {
         #region Methods
-        protected static string GetSimpleText(string outputText)
-        {
-            string? userInput = string.Empty;
-
-            while (true)
-            {
-                Console.Write(outputText);
-                userInput = Console.ReadLine();
-
-                if (userInput == null)
-                    continue;
-                else
-                    return userInput;
-            }
-        }
-
-        protected static int GetNumberText(string outputText)
-        {
-            string? userInput = string.Empty;
-
-            while (true)
-            {
-                Console.Write(outputText);
-                userInput = Console.ReadLine();
-
-                if (userInput == null) continue;
-
-                int number;
-                if (!int.TryParse(userInput, out number))
-                {
-                    Console.WriteLine("Невозможно преобразовать число!");
-                    continue;
-                }
-                else
-                    return number;
-            }
-        }
-
-        protected static string GetEmailText(string outputText)
+        public static string GetEmailText(string outputText)
         {
             string? userInput = string.Empty;
 
@@ -62,7 +26,7 @@
             }
         }
 
-        protected static double GetPhoneNumberText(string outputText)
+        public static double GetPhoneNumberText(string outputText)
         {
             string? userInput = string.Empty;
 
@@ -103,7 +67,7 @@
 
             while (true)
             {
-                int customerId = GetNumberText(outputText);
+                int customerId = BaseInputs.GetNumberText(outputText);
 
                 if (existingIds.Contains(customerId))
                     return customerId;
@@ -125,7 +89,7 @@
 
             while (true)
             {
-                int orderId = GetNumberText(outputText);
+                int orderId = BaseInputs.GetNumberText(outputText);
 
                 if (existingIds.Contains(orderId))
                     return orderId;

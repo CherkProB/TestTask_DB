@@ -3,8 +3,8 @@
     public abstract class BaseScreen
     {
         #region FieldAndProperty
-        public ScreenManager ScreenManager { set => screenManager = value; }
-        protected ScreenManager screenManager;
+        public BaseScreenManager BaseScreenManager { set => baseScreenManager = value; }
+        protected BaseScreenManager baseScreenManager;
         #endregion
 
         #region Method

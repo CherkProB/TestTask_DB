@@ -1,0 +1,8 @@
+{
+    "Server":"localhost",
+    "Port":"3306",
+    "Username":"root",
+    "Password":"",
+    "Database":"test_task",
+    "IsDetailed":false
+}

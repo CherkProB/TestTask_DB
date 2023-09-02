@@ -1,9 +1,9 @@
-﻿using TestTask.Screens.Base;
-using TestTask.Screens.Start;
+﻿using TestTask.Screens.DB.Base;
+using TestTask.Screens.DB.Start;
 
-namespace TestTask.Screens.Orders
+namespace TestTask.Screens.DB.Orders
 {
-    public sealed class OrderStartScreen : BaseScreen
+    public sealed class DBOrderStartScreen : DBBaseScreen
     {
         #region Methods
         public override void Show()
@@ -28,11 +28,11 @@ namespace TestTask.Screens.Orders
 
                 switch (userInput)
                 {
-                    case "0": screenManager.SwitchScreen<StartScreen>(); return;
+                    case "0": baseScreenManager.SwitchScreen<DBStartScreen>(); return;
                     case "1": ShowAllOrders(); break;
                     case "2": ShowCustomerOrders(); break;
-                    case "3": screenManager.SwitchScreen<OrderAddScreen>(); break;
-                    case "4": screenManager.SwitchScreen<OrderDeleteScreen>(); break;
+                    case "3": baseScreenManager.SwitchScreen<DBOrderAddScreen>(); break;
+                    case "4": baseScreenManager.SwitchScreen<DBOrderDeleteScreen>(); break;
                     default: Console.WriteLine("Введен неверный номер!"); break;
                 }
             }
@@ -40,7 +40,7 @@ namespace TestTask.Screens.Orders
 
         private void ShowAllOrders()
         {
-            BaseObjects.Orders[] orders = screenManager.DBProvider.SelectAllOrders();
+            BaseObjects.Orders[] orders = dbScreenManager.DBProvider.SelectAllOrders();
 
             foreach (BaseObjects.Orders order in orders)
                 Console.WriteLine(order.ToString());
@@ -52,9 +52,9 @@ namespace TestTask.Screens.Orders
             Console.WriteLine("Список клиентов");
             Console.WriteLine("---------------");
 
-            int customerId = BaseAddDeleteScreen.GetExistCustomerId("Введите ID клиента - ", screenManager.DBProvider);
+            int customerId = DBInputs.GetExistCustomerId("Введите ID клиента - ", dbScreenManager.DBProvider);
 
-            BaseObjects.Orders[] orders = screenManager.DBProvider.SelectAllOrdersByCustomerId(customerId);
+            BaseObjects.Orders[] orders = dbScreenManager.DBProvider.SelectAllOrdersByCustomerId(customerId);
 
             foreach (BaseObjects.Orders order in orders)
                 Console.WriteLine(order.ToString());

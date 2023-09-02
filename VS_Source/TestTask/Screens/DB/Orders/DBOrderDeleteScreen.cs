@@ -1,14 +1,13 @@
 ﻿using TestTask.Screens.Base;
+using TestTask.Screens.DB.Base;
 
-namespace TestTask.Screens.Orders
+namespace TestTask.Screens.DB.Orders
 {
-    public sealed class OrderDeleteScreen : BaseAddDeleteScreen
+    public sealed class DBOrderDeleteScreen : DBBaseScreen
     {
         #region Methods
         public override void Show()
         {
-            string? userInput = string.Empty;
-
             BaseObjects.Orders? order = GetOrderById();
 
             if (order == null) return;
@@ -21,13 +20,10 @@ namespace TestTask.Screens.Orders
             Console.WriteLine("Вы действительно хотите удалить данный заказ?");
             Console.WriteLine("1 - Да");
             Console.WriteLine("Любая кнопка - Нет");
-            Console.Write("Ваш выбор - ");
 
-            userInput = Console.ReadLine();
+            string userInput = BaseInputs.GetSimpleText("Ваш выбор - ");
 
-            if (userInput == null) return;
-
-            if (userInput == "1") screenManager.DBProvider.DeleteOrderById(order.Id);
+            if (userInput == "1") dbScreenManager.DBProvider.DeleteOrderById(order.Id);
         }
 
         private BaseObjects.Orders? GetOrderById()
@@ -36,9 +32,9 @@ namespace TestTask.Screens.Orders
             Console.WriteLine("Список заказов");
             Console.WriteLine("---------------");
 
-            int orderId = GetExistOrderId("Введите ID заказа - ", screenManager.DBProvider);
+            int orderId = DBInputs.GetExistOrderId("Введите ID заказа - ", dbScreenManager.DBProvider);
 
-            BaseObjects.Orders? order = screenManager.DBProvider.SelectOrderById(orderId);
+            BaseObjects.Orders? order = dbScreenManager.DBProvider.SelectOrderById(orderId);
 
             return order;
         }
