@@ -13,17 +13,10 @@ namespace TestTask.Startup
     public class Program
     {
         #region Constant
-        /// <summary>
-        /// Constant name of the file where the settings are saved
-        /// </summary>
         private const string jsonFileName = "DBSettings.json";
         #endregion
 
         #region EntryPoint
-        /// <summary>
-        /// Application entry point 
-        /// </summary>
-        /// <param name="args">Parametrs</param>
         private static void Main(string[] args)
         {
             ApplicationStartBaseScreen[] appStartScreens = GetApplicationStartBaseScreens();
@@ -44,10 +37,6 @@ namespace TestTask.Startup
         #endregion
 
         #region ScreensSetup
-        /// <summary>
-        /// Method that returns all existing screens for db screen manager
-        /// </summary>
-        /// <returns>Returns all existiong screens</returns>
         private static DBBaseScreen[] GetDBScreens()
         {
             List<DBBaseScreen> screens = new List<DBBaseScreen>();
@@ -65,10 +54,6 @@ namespace TestTask.Startup
             return screens.ToArray();
         }
 
-        /// <summary>
-        /// Method that returns all existing screens for application start screen manager
-        /// </summary>
-        /// <returns>Returns all existiong screens</returns>
         private static ApplicationStartBaseScreen[] GetApplicationStartBaseScreens()
         {
             List<ApplicationStartBaseScreen> screens = new List<ApplicationStartBaseScreen>();

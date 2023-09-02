@@ -6,7 +6,7 @@
         public bool IsDetailed { get => isDetailed; set => isDetailed = value; }
         protected bool isDetailed;
 
-        protected string tableName;
+        protected readonly string tableName;
         #endregion Region
 
         #region Constructor

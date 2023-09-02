@@ -11,6 +11,7 @@ namespace TestTask.DataBaseProviders.Base
         #region SelectRequests
         public abstract Customers[] SelectAllCustomers();
         public abstract Customers? SelectCustomerById(int customerId);
+
         public abstract Orders[] SelectAllOrders();
         public abstract Orders? SelectOrderById(int orderId);
         public abstract Orders[] SelectAllOrdersByCustomerId(int customerId);
@@ -18,11 +19,13 @@ namespace TestTask.DataBaseProviders.Base
 
         #region AddRequests
         public abstract void AddNewCustomer(Customers newCustomer);
+
         public abstract void AddNewOrder(Orders newOrder);
         #endregion
 
         #region DeleteRequests
         public abstract void DeleteCustomerById(int customerId);
+
         public abstract void DeleteOrderById(int orderId);
         #endregion
     }

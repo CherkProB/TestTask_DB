@@ -20,11 +20,11 @@ namespace TestTask.DataBaseProviders.MySQL
         #endregion
 
         #region CheckConnection
-        public bool CheckConnection() 
+        public bool CheckConnection()
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
 
-            try 
+            try
             {
                 if (isDetailed) Console.WriteLine("Установка соединения с базой данных...");
 
@@ -36,7 +36,7 @@ namespace TestTask.DataBaseProviders.MySQL
 
                 return true;
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 Console.WriteLine("При попытки установить соединение с базой данных произошла ошибка.\n" + ex.Message);
 
@@ -72,7 +72,7 @@ namespace TestTask.DataBaseProviders.MySQL
 
             connection.Close();
 
-            return newDataSet.Tables.Count != 0? newDataSet.Tables[0] : null;
+            return newDataSet.Tables.Count != 0 ? newDataSet.Tables[0] : null;
         }
 
         public DataTable? SelectAll() => Select("SELECT * FROM " + tableName);

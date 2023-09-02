@@ -28,11 +28,8 @@ namespace TestTask.BaseObjects
             id = price = customerId = 0;
             title = orderDate = string.Empty;
         }
-
         public Orders(DataRow row)
         {
-            //string[] cells = row.ItemArray.Cast<string>().ToArray(); ;
-
             var cells = row.ItemArray;
 
             id = int.Parse(cells[0].ToString());
@@ -41,6 +38,20 @@ namespace TestTask.BaseObjects
             price = int.Parse(cells[3].ToString());
             customerId = int.Parse(cells[4].ToString());
         }
+        /*
+        */
+        /*
+        public Orders(DataRow row)
+        {
+            string[] cells = row.ItemArray.Cast<string>().ToArray();
+
+            id = int.Parse(cells[0].ToString());
+            title = cells[1].ToString();
+            orderDate = cells[2].ToString();
+            price = int.Parse(cells[3].ToString());
+            customerId = int.Parse(cells[4].ToString());
+        }
+        */
         #endregion
 
         #region Override
