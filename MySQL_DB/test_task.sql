@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Сен 01 2023 г., 14:35
+-- Время создания: Сен 02 2023 г., 13:10
 -- Версия сервера: 8.0.30
 -- Версия PHP: 8.1.9
 
@@ -43,7 +43,9 @@ INSERT INTO `customers` (`id_customer`, `surname`, `name`, `email`, `phone_numbe
 (1, 'Ivanov', 'Ivan', 'Ivan@yandex.ru', 89995431010),
 (2, 'Petrov', 'Petr', 'Petr@gmail.com', 89189990100),
 (4, 'Sidorov', 'Oleg', 'Oleg@rgups.ru', 88009871010),
-(5, 'Romanenko', 'Ivan', 'Rom@yandex.ru', 89991002030);
+(5, 'Romanenko', 'Ivan', 'Rom@yandex.ru', 89991002030),
+(6, 'Smirnov', 'Ivan', 'SI@gmail.com', 89098028722),
+(8, 'Bistrov', 'Gleb', 'gleb@gmail.com', 89117019281);
 
 -- --------------------------------------------------------
 
@@ -70,7 +72,8 @@ INSERT INTO `orders` (`id_order`, `title`, `order_date`, `order_price`, `id_cust
 (5, 'NewOrder1', '2023-09-01', 15000, 4),
 (6, 'NewOrder2', '2023-09-01', 5000, 4),
 (7, 'NewOrder3', '2023-09-01', 50000, 5),
-(8, 'NewOrder4', '2023-09-01', 100, 5);
+(8, 'NewOrder4', '2023-09-01', 100, 5),
+(9, 'SNewOrder1', '2023-09-01', 1000, 6);
 
 --
 -- Индексы сохранённых таблиц
