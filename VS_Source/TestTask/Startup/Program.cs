@@ -28,7 +28,11 @@ namespace TestTask.Startup
 
             BaseDBProvider baseDBProvider = new MySQLDBProvider(connectionString, isDetailed);
 
-            if (!baseDBProvider.CheckConnection()) return;
+            if (!baseDBProvider.CheckConnection())
+            {
+                Console.WriteLine("Невозможно подключится к базе данных!");
+                return;
+            }
 
             DBBaseScreen[] dbScreens = GetDBScreens();
 
